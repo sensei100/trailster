@@ -15,6 +15,29 @@
         Dislikes: {{ hike.dislikes }} <span ng-click="ctrl.dislikeHike(hike)">+</span>
       </p>
 
+      <h4>Comments:</h4>
+      <ul>
+        <li ng-repeat="comment in hike.comments">
+          {{ comment.content }}
+        </li>
+      </ul><br>
+      <p>
+        Add Comment
+      </p>
+      <form
+        validate
+        ng-submit="ctrl.addComment(ctrl.comment, hike)">
+
+        <input
+          type="text"
+          ng-model="ctrl.comment.content">
+
+        <input
+          type="submit"
+          value="Add Comment">
+
+      </form><br>
+
       <a href="#" ui-sref="trailster.edit({id: hike.id})">Edit Hike</a>
       <a href ng-click="ctrl.deleteHike(hike)">Delete</a>
 

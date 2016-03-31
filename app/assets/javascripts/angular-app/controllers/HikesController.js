@@ -1,12 +1,13 @@
-angular
-  .module('trailster')
-  .controller('HikesController', HikesController);
 
-function HikesController(Hike, $state) {
+app.controller('HikesController', HikesController);
+
+function HikesController(Hike, Comment, $state) {
 
   var ctrl = this;
 
   ctrl.hikes = Hike.query();
+
+  ctrl.comment = new Comment();
 
   ctrl.deleteHike = function(hike) {
     hike.$delete(function() {
@@ -17,7 +18,6 @@ function HikesController(Hike, $state) {
   ctrl.likeHike = function(hike) {
     hike.likes++;
     hike.$update(hike);
-    // $state.go($state.current, {}, {reload: true});
   };
 
   ctrl.dislikeHike = function(hike) {
@@ -25,7 +25,12 @@ function HikesController(Hike, $state) {
     hike.$update(hike);
   };
 
-  ctrl.addComment = function(comment) {
-    
-  }
+  ctrl.addComment = function(comment, hike) {
+    comment.hike_id = hike.id;
+    comment.$save(function(result) {
+      console.log(result);
+    });
+    ctrl.comment = new Comment();
+  };
+
 }
