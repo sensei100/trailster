@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  street_address: MyString
+  city: MyString
+  state: MyString
+  difficulty: 1
+  distance: 9.99
+  likes: 1
+  dislikes: 1
+
+two:
+  name: MyString
+  description: MyText
+  street_address: MyString
+  city: MyString
+  state: MyString
+  difficulty: 1
+  distance: 9.99
+  likes: 1
+  dislikes: 1

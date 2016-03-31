@@ -1,28 +1,9 @@
-== README
+*** TRAILSTER SAN DIEGO ***
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Search for and add hiking trails in and around San Diego, CA.
 
-Things you may want to cover:
+To run this app:
 
-* Ruby version
+1. please make sure you have postgreSQL and Rails installed.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+2. run rake db:seed 
