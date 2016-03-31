@@ -34,6 +34,16 @@ module Api
         respond_with Hike.destroy(params[:id])
       end
 
+      def like
+        @hike = Hike.find(params[:id])
+        @hike.increment!(:likes)
+      end
+
+      def dislike
+        @hike = Hike.find(params[:id])
+        @hike.incrment!(:dislikes)
+      end
+
       private
         def hike_params
           params.require(:hike).permit(:name, :description, :street_address, :city, :state, :difficulty, :distance, :likes, :dislikes)
