@@ -1,0 +1,41 @@
+module Api
+  module V1
+    class CommentsController < ApplicationController
+      skip_before_filter :verify_authenticity_token
+      respond_to :json
+
+
+      def show
+        hike = Hike.find(params[:hike_id])
+        comment = hike.comments.find(params[:id])
+        respond_with hike, comment
+      end
+
+      def create
+        hike = Hike.find(params[:hike_id])
+        comment = hike.comments.create(comment_params)
+        respond_with hike, comment
+      end
+
+      def update
+        hike = Hike.find(params[:hike_id])
+        comment = hike.comments.find(params[:id])
+        comment.update(comment_params)
+        respond_with hike, comment
+      end
+
+      def destroy
+        hike = Hike.find(params[:hike_id])
+        comment = hike.comments.find(params[:id])
+        respond_with comment.destroy
+      end
+
+      private
+        def comment_params
+          params.require(:comment).permit(:content, :hike_id)
+        end
+
+
+    end
+  end
+end
