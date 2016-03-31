@@ -18,7 +18,7 @@
       <h4>Comments:</h4>
       <ul>
         <li ng-repeat="comment in hike.comments">
-          {{ comment.content }}
+          {{ comment.content }} <span ng-click="ctrl.deleteComment(comment)">X</span>
         </li>
       </ul><br>
       <p>

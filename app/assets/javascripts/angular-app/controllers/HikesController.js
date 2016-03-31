@@ -25,12 +25,20 @@ function HikesController(Hike, Comment, $state) {
     hike.$update(hike);
   };
 
+  ctrl.deleteComment = function(comment) {
+    var updateComment = Comment.get({id: comment.id});
+    updateComment.$delete(function() {
+      $state.go($state.current, {}, {reload: true});
+    });
+  };
+
   ctrl.addComment = function(comment, hike) {
     comment.hike_id = hike.id;
     comment.$save(function(result) {
       console.log(result);
     });
     ctrl.comment = new Comment();
+    $state.go($state.current, {}, {reload: true});
   };
 
 }
