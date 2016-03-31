@@ -5,6 +5,12 @@ module Api
       respond_to :json
 
 
+      def index
+        hike = Hike.find(params[:hike_id])
+        comments = hike.comments
+        respond_with hike, comments
+      end
+      
       def show
         hike = Hike.find(params[:hike_id])
         comment = hike.comments.find(params[:id])

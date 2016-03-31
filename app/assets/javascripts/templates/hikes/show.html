@@ -1,0 +1,16 @@
+<div>
+  <h2>{{ ctrl.hike.name }}</h2>
+  <h4>
+    {{ ctrl.hike.street_address }}<br>
+    {{ ctrl.hike.city }}, {{ ctrl.hike.state }}
+  </h4>
+  <p>
+    Difficulty: {{ ctrl.hike.difficulty }}<br>
+    Distance: {{ ctrl.hike.distance }} miles<br><br>
+    Likes: {{ ctrl.hike.likes }}<br>
+    Dislikes: {{ ctrl.hike.dislikes }}
+  </p>
+
+  <a href="#" ui-sref="trailster.edit({id: ctrl.hike.id})">Edit Hike</a>
+
+</div>

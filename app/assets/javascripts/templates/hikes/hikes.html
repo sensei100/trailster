@@ -1,0 +1,23 @@
+<h2>All Hikes</h2>
+
+<ul>
+  <li ng-repeat="hike in ctrl.hikes">
+    <div>
+      <h2><a href="#" ui-sref="trailster.hike({id: hike.id})">{{ hike.name }}</a></h2>
+      <h4>
+        {{ hike.street_address }}<br>
+        {{ hike.city }}, {{ hike.state }}
+      </h4>
+      <p>
+        Difficulty: {{ hike.difficulty }}<br>
+        Distance: {{ hike.distance }} miles<br><br>
+        Likes: {{ hike.likes }} <span ng-click="ctrl.likeHike(hike)">+</span><br>
+        Dislikes: {{ hike.dislikes }} <span ng-click="ctrl.dislikeHike(hike)">+</span>
+      </p>
+
+      <a href="#" ui-sref="trailster.edit({id: hike.id})">Edit Hike</a>
+      <a href ng-click="ctrl.deleteHike(hike)">Delete</a>
+
+    </div>
+  </li>
+</ul>
