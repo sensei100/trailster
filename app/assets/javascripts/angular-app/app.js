@@ -1,4 +1,4 @@
-var app = angular.module('trailster', ['ui.router', 'ngResource', 'templates']);
+var app = angular.module('trailster', ['ui.router', 'ngResource', 'templates', 'Devise']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -6,6 +6,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'trailster.html',
       controller: 'TrailsterController as ctrl'
+    })
+    .state('trailster.login', {
+      url: 'login',
+      templateUrl: 'auth/login.html',
+      controller: 'AuthController',
+      onEnter: ['$state', 'Auth', function($state, Auth) {
+        Auth.currentUser().then(function() {
+          $state.go('trailster')
+        });
+      }]
+    })
+    .state('trailster.register', {
+      url: 'register',
+      templateUrl: 'auth/register.html',
+      controller: 'AuthController',
+      onEnter: ['$state', 'Auth', function($state, Auth) {
+        Auth.currentUser().then(function() {
+          $state.go('trailster')
+        });
+      }]
     })
     .state('trailster.hikes', {
       url: 'hikes',

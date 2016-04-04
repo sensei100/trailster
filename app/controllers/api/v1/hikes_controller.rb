@@ -2,6 +2,9 @@ module Api
   module V1
     class HikesController < ApplicationController
       skip_before_filter :verify_authenticity_token
+
+      before_filter :authenticate_user!, only: [:create, :update, :destroy]
+
       respond_to :json
 
       def index

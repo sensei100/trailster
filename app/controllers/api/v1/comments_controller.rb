@@ -2,8 +2,10 @@ module Api
   module V1
     class CommentsController < ApplicationController
       skip_before_filter :verify_authenticity_token
-      respond_to :json
 
+      before_filter :authenticate_user!, only: [:create, :destroy]
+      
+      respond_to :json
 
       def index
         hike = Hike.find(params[:hike_id])
