@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404033022) do
+ActiveRecord::Schema.define(version: 20160404204011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,21 @@ ActiveRecord::Schema.define(version: 20160404033022) do
   create_table "comments", force: :cascade do |t|
     t.text     "content"
     t.integer  "hike_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "comments", ["hike_id"], name: "index_comments_on_hike_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
 
   create_table "hikes", force: :cascade do |t|
     t.string   "name"
@@ -35,9 +45,20 @@ ActiveRecord::Schema.define(version: 20160404033022) do
     t.float    "distance"
     t.integer  "likes",          default: 0
     t.integer  "dislikes",       default: 0
+    t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
+
+  add_index "hikes", ["user_id"], name: "index_hikes_on_user_id", using: :btree
+
+  create_table "user_groups", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "user_id"
+  end
+
+  add_index "user_groups", ["group_id"], name: "index_user_groups_on_group_id", using: :btree
+  add_index "user_groups", ["user_id"], name: "index_user_groups_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -60,4 +81,8 @@ ActiveRecord::Schema.define(version: 20160404033022) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "comments", "hikes"
+  add_foreign_key "comments", "users"
+  add_foreign_key "hikes", "users"
+  add_foreign_key "user_groups", "groups"
+  add_foreign_key "user_groups", "users"
 end

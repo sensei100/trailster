@@ -18,6 +18,7 @@
       <h4>Comments:</h4>
       <ul>
         <li ng-repeat="comment in hike.comments | orderBy: '-created_at'">
+          <h4>{{ comment.user }}</h4> 
           {{ comment.content }}
         </li>
       </ul><br>

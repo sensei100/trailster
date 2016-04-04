@@ -46,7 +46,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: 'edit/:id',
       templateUrl: 'hikes/edit.html',
       controller: 'EditHikeController as ctrl'
-    });
+    })
+    .state('trailster.groups', {
+      url: 'groups',
+      templateUrl: 'groups/groups.html',
+      controller: 'GroupsController as ctrl'
+    })
+    .state('trailster.group', {
+      url: 'group/:id',
+      templateUrl: 'groups/show.html',
+      controller: 'ShowGroupController as ctrl'
+    })
+
+    ;
 
   $urlRouterProvider.otherwise('/');
 

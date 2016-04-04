@@ -1,0 +1,13 @@
+<h2> {{ ctrl.group.name }}</h2>
+<h4> {{ ctrl.user.username }}</h4>
+<p>
+  {{ ctrl.group.description }}
+</p>
+
+<ul>
+  <li ng-repeat="user in ctrl.group.users">
+    {{ user.username }}
+  </li>
+</ul>
+
+<button ng-click="ctrl.addUser()">Join Group</button>

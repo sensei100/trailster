@@ -10,6 +10,7 @@ class CreateHikes < ActiveRecord::Migration
       t.float :distance
       t.integer :likes, default: 0
       t.integer :dislikes, default: 0
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

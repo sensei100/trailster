@@ -4,7 +4,7 @@ module Api
       skip_before_filter :verify_authenticity_token
 
       before_filter :authenticate_user!, only: [:create, :destroy]
-      
+
       respond_to :json
 
       def index
@@ -22,7 +22,7 @@ module Api
       def create
         hike = Hike.find(params[:hike_id])
         comment = hike.comments.create(comment_params)
-        respond_with :api, :v1, hike, comment
+        respond_with hike, comment
       end
 
       # def update

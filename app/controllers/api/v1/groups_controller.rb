@@ -40,7 +40,7 @@ module Api
 
       private
         def group_params
-          params.require(:group).permit(:name, :description, :hikers)
+          params.require(:group).permit(:name, :description)
         end
 
     end

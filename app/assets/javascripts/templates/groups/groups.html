@@ -1,0 +1,15 @@
+<h1>Groups</h1>
+
+<ul>
+  <li ng-repeat="group in ctrl.groups">
+    <div>
+      <a href="#" ui-sref="trailster.group({id: group.id})">{{ group.name }}</a>
+      <p>
+        {{ group.description }}
+      </p>
+      <ul>
+        <li> {{ group.users.count }}</li>
+      </ul>
+    </div>
+  </li>
+</ul>
