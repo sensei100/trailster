@@ -13,4 +13,32 @@
 
   <a href="#" ui-sref="trailster.edit({id: ctrl.hike.id})">Edit Hike</a>
 
+  <p>
+    Add Comment
+  </p>
+  <form
+    validate
+    ng-submit="ctrl.addComment(ctrl.comment, ctrl.hike)">
+
+    <input
+      type="text"
+      ng-model="ctrl.comment.content">
+
+    <input
+      type="submit"
+      value="Add Comment">
+
+  </form><br>
+
+
+  <h4>Comments:</h4>
+
+  <ul>
+    <li>{{ ctrl.comment.content}}</li>
+    <li ng-repeat="comment in ctrl.hike.comments | orderBy: '-created_at'">
+      {{ comment.content }} <button ng-click="ctrl.deleteComment(comment)">X</button>
+    </li>
+  </ul><br>
+
+
 </div>

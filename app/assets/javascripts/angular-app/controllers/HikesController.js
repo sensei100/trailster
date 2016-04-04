@@ -1,13 +1,11 @@
 
 app.controller('HikesController', HikesController);
 
-function HikesController(Hike, Comment, $state) {
+function HikesController(Hike, $state) {
 
   var ctrl = this;
 
   ctrl.hikes = Hike.query();
-
-  ctrl.comment = new Comment();
 
   ctrl.deleteHike = function(hike) {
     hike.$delete(function() {
@@ -23,22 +21,6 @@ function HikesController(Hike, Comment, $state) {
   ctrl.dislikeHike = function(hike) {
     hike.dislikes++;
     hike.$update(hike);
-  };
-
-  ctrl.deleteComment = function(comment) {
-    var updateComment = Comment.get({id: comment.id});
-    updateComment.$delete(function() {
-      $state.go($state.current, {}, {reload: true});
-    });
-  };
-
-  ctrl.addComment = function(comment, hike) {
-    comment.hike_id = hike.id;
-    comment.$save(function(result) {
-      console.log(result);
-    });
-    ctrl.comment = new Comment();
-    $state.go($state.current, {}, {reload: true});
   };
 
 }

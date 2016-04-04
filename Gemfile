@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt-ruby', '~> 3.1.5'
+
 gem 'angular-rails-templates'
 
 gem 'bower-rails'

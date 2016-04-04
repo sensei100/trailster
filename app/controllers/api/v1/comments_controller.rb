@@ -10,25 +10,25 @@ module Api
         comments = hike.comments
         respond_with hike, comments
       end
-      
+
       def show
         hike = Hike.find(params[:hike_id])
         comment = hike.comments.find(params[:id])
-        respond_with hike, comment
+        respond_with hike, comments
       end
 
       def create
         hike = Hike.find(params[:hike_id])
         comment = hike.comments.create(comment_params)
-        respond_with hike, comment
+        respond_with :api, :v1, hike, comment
       end
 
-      def update
-        hike = Hike.find(params[:hike_id])
-        comment = hike.comments.find(params[:id])
-        comment.update(comment_params)
-        respond_with hike, comment
-      end
+      # def update
+      #   hike = Hike.find(params[:hike_id])
+      #   comment = hike.comments.find(params[:id])
+      #   comment.update(comment_params)
+      #   respond_with hike, comment
+      # end
 
       def destroy
         hike = Hike.find(params[:hike_id])

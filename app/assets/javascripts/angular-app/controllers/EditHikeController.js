@@ -9,6 +9,6 @@ function EditHikeController(Hike, $location, $stateParams) {
   ctrl.editHike = function() {
     ctrl.hike.$update(function() {
       $location.path('hikes');
-    })
+    });
   }
 }
