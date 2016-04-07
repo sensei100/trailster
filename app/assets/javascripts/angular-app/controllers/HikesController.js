@@ -7,12 +7,6 @@ function HikesController(Hike, $state) {
 
   ctrl.hikes = Hike.query();
 
-  ctrl.deleteHike = function(hike) {
-    hike.$delete(function() {
-      $state.go($state.current, {}, {reload: true});
-    });
-  };
-
   ctrl.likeHike = function(hike) {
     hike.likes++;
     hike.$update(hike);

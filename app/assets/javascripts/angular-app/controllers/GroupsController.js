@@ -6,4 +6,5 @@ function GroupsController(Group, $state, $stateParams) {
 
   ctrl.groups = Group.query();
 
+
 };

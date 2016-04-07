@@ -17,7 +17,12 @@ Rails.application.routes.draw do
 
       end
 
-      resources :groups
+      resources :groups do
+        member do
+          put '/hikers' => 'groups#hikers'
+        end
+      end
+
     end
   end
 

@@ -1,8 +1,10 @@
 <h2> {{ ctrl.group.name }}</h2>
-<h4> {{ ctrl.user.username }}</h4>
+<h4> Group Leader: {{ ctrl.group.owner }}</h4>
 <p>
   {{ ctrl.group.description }}
 </p>
+
+<a ng-show="ctrl.isCreator(ctrl.user, ctrl.group)" href="#" ui-sref="trailster.edit-group({id: ctrl.group.id})">Edit Group</a>
 
 <ul>
   <li ng-repeat="user in ctrl.group.users">
@@ -10,4 +12,4 @@
   </li>
 </ul>
 
-<button ng-click="ctrl.addUser()">Join Group</button>
+<button ng-click="ctrl.addUser(ctrl.user)">Join Group</button>

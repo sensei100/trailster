@@ -16,7 +16,7 @@ module Api
       end
 
       def create
-        @group = Group.new
+        @group = Group.new(group_params)
         if @group.save
           respond_to do |format|
             format.json { render :json => @group }
@@ -26,10 +26,17 @@ module Api
 
       def update
         @group = Group.find(params[:id])
-        if @group.update(group_params)
+        user = User.find(params[:users].last[:id])
+        if !@group.users.include?(user)
+          @group.users << user
+          @group.update(group_params)
           respond_to do |format|
             format.json { render :json => @group }
           end
+        end
+        @group.update(group_params)
+        respond_to do |format|
+          format.json { render :json => @group }
         end
       end
 
@@ -40,7 +47,7 @@ module Api
 
       private
         def group_params
-          params.require(:group).permit(:name, :description)
+          params.require(:group).permit(:name, :description, :user_id, :owner)
         end
 
     end

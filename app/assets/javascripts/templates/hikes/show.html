@@ -12,7 +12,8 @@
     Dislikes: {{ ctrl.hike.dislikes }}
   </p>
 
-  <a href="#" ui-sref="trailster.edit({id: ctrl.hike.id})">Edit Hike</a>
+  <a ng-show="ctrl.isHikeCreator(ctrl.user, ctrl.hike)" href="#" ui-sref="trailster.edit({id: ctrl.hike.id})">Edit Hike</a>
+  <a ng-show="ctrl.isHikeCreator(ctrl.user, ctrl.hike)" href ng-click="ctrl.deleteHike(ctrl.hike)">Delete</a>
 
   <p>
     Add Comment

@@ -4,9 +4,11 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li ng-hide="signedIn()"><a href="#"  ui-sref="trailster.login" >Log In</a></li>
       <li ng-hide="signedIn()"><a href="#" ui-sref="trailster.register">Register</a></li>
-      <li><a href="#" ui-sref="trailster.hikes" ui-sref-active="active">Hikes</a></li>
-      <li><a href="#" ui-sref="trailster.new" ui-sref-active="active">New Hike</a></li>
-      <li><a href="#" ui-sref="trailster.groups" ui-sref-active="active">Groups</a></li>
+      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.hikes" ui-sref-active="active">Hikes</a></li>
+      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.new" ui-sref-active="active">+ Hike</a></li>
+      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.groups" ui-sref-active="active">Groups</a></li>
+      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.new-group" ui-sref-active="active">+ Group</a></li>
+      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.about" ui-sref-active="active">About</a></li>
       <li ng-show="signedIn()">{{ user.username }}</li>
       <li ng-show="signedIn()"><a href="" ng-click="logout()">Log Out</a></li>
     </ul>

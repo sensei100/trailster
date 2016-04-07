@@ -1,12 +1,24 @@
 app.controller('ShowHikeController', ShowHikeController);
 
-function ShowHikeController(Hike, Comment, $state, $stateParams, $http) {
+function ShowHikeController(Hike, Comment, $state, $stateParams, $http, Auth) {
 
   var ctrl = this;
+
+  Auth.currentUser()
+    .then(function(user) {
+      ctrl.user = user;
+      console.log(ctrl.user);
+    });
 
   ctrl.comment = new Comment();
 
   ctrl.hike = Hike.get({ id: $stateParams.id });
+
+  ctrl.deleteHike = function(hike) {
+    hike.$delete(function() {
+      $state.go('trailster.hikes');
+    });
+  };
 
   ctrl.addComment = function(comment, hike) {
     comment.hike_id = hike.id;
@@ -22,6 +34,12 @@ function ShowHikeController(Hike, Comment, $state, $stateParams, $http) {
       console.log('successfully delete');
       $state.go($state.current, {}, {reload: true});
     });
+  };
+
+  ctrl.isHikeCreator = function(user, hike) {
+    if(user.id === hike.user_id) {
+      return true;
+    }
   };
 
 

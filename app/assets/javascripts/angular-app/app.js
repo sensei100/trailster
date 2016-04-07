@@ -57,8 +57,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'groups/show.html',
       controller: 'ShowGroupController as ctrl'
     })
-
-    ;
+    .state('trailster.new-group', {
+      url: 'new-group',
+      templateUrl: 'groups/new.html',
+      controller: 'NewGroupController as ctrl'
+    })
+    .state('trailster.edit-group', {
+      url: 'edit-group/:id',
+      templateUrl: 'groups/edit.html',
+      controller: 'EditGroupController as ctrl'
+    })
+    .state('trailster.about', {
+      url: 'about',
+      templateUrl: 'about/about.html'
+    });
 
   $urlRouterProvider.otherwise('/');
 

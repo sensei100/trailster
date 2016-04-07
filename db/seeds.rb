@@ -51,12 +51,14 @@ groups = [
   {
     name: 'Mountain Hikers',
     description: 'Mountain hikers is a group of people that love to find a new challenge. We frequently hike @ Palomar Mountain. Please join our group, if you would love to hang out with active and adventures hikers.',
-    user_id: 1
+    user_id: 1,
+    owner: 'Rukkusan'
   },
   {
     name: 'Beach Bums',
     description: 'The Beach Bums love hiking near the beach. You will find us hiking around Torrey Pines Reserver almost once a month.',
-    user_id: 1
+    user_id: 1,
+    owner: 'Rukkusan'
   }
 ]
 
