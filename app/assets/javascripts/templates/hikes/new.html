@@ -1,42 +1,24 @@
-<h2>Add A Hike</h1>
+<h3 class="center">Create Hike</h3>
 
-<form validate ng-submit="ctrl.addHike()">
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <form
+          class="form-labels left-side"
+          validate ng-submit="ctrl.addHike(ctrl.user)">
 
-  <label>Name</label>
-  <input
-    type="text"
-    ng-model="ctrl.hike.name">
+            <div ng-include="'hikes/_form.html'"></div>
 
-  <label>Description</label>
-  <input
-    type="text"
-    ng-model="ctrl.hike.description">
+          <input
+            class="waves-effect deep-orange btn below "
+            type="submit"
+            value="Add Hike">
 
-  <label>Street Address</label>
-  <input
-    type="text"
-    ng-model="ctrl.hike.street_address">
+        </form>
+      </div>
+    </div>
+  </div>
 
-  <label>City</label>
-  <input
-    type="text"
-    ng-model="ctrl.hike.city">
-
-  <label>State</label>
-  <input
-    type="text"
-    ng-model="ctrl.hike.state">
-
-  <label>Difficulty</label>
-  <input
-    type="number"
-    ng-model="ctrl.hike.difficulty">
-
-  <label>Distance In Miles</label>
-  <input
-    type="text"
-    ng-model="ctrl.hike.distance">
-
-  <input type="submit" value="Add Hike">
-
-</form>
+  <div ng-include="'hikes/_hikeCard.html'"></div>
+</div>

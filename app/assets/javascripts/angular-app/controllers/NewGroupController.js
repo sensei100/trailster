@@ -18,6 +18,6 @@ function NewGroupController(Group, Auth, $location) {
     ctrl.group.$save(function(){
       $location.path('groups');
     });
-  }
+  };
 
 }

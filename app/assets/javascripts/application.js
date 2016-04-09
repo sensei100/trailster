@@ -3,4 +3,6 @@
 //= require angular-resource
 //= require angular-rails-templates
 //= require angular-devise
+//= require jquery
+//= require materialize-sprockets
 //= require_tree .

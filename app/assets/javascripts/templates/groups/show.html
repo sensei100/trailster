@@ -1,15 +1,29 @@
-<h2> {{ ctrl.group.name }}</h2>
-<h4> Group Leader: {{ ctrl.group.owner }}</h4>
-<p>
-  {{ ctrl.group.description }}
-</p>
 
-<a ng-show="ctrl.isCreator(ctrl.user, ctrl.group)" href="#" ui-sref="trailster.edit-group({id: ctrl.group.id})">Edit Group</a>
+<div class="row">
+  <div class="col s12 m8 push-m2">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">{{ ctrl.group.name }}</span>
+        <h4> Group Leader: {{ ctrl.group.owner }}</h4>
+        <hr>
+        <p>
+          {{ ctrl.group.description }}
+        </p><br><br>
 
-<ul>
-  <li ng-repeat="user in ctrl.group.users">
-    {{ user.username }}
-  </li>
-</ul>
-
-<button ng-click="ctrl.addUser(ctrl.user)">Join Group</button>
+        <p>
+          Current Hikers:
+        </p>
+        <hr>
+        <ul>
+          <li ng-repeat="user in ctrl.group.users">
+            {{ user.username }}
+          </li>
+        </ul>
+      </div>
+      <div class="card-action">
+        <button class="waves-effect waves-light btn" ng-click="ctrl.addUser(ctrl.user)">Join Group</button>
+        <a class="waves-effect waves-light btn" ng-show="ctrl.isCreator(ctrl.user, ctrl.group)" href="#" ui-sref="trailster.edit-group({id: ctrl.group.id})">Edit Group</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,31 @@
-<nav ng-controller="NavbarController">
-  <div class="nav-wrapper">
-    <a href="#" ui-sref="trailster" class="brand-logo">Trailster</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li ng-hide="signedIn()"><a href="#"  ui-sref="trailster.login" >Log In</a></li>
-      <li ng-hide="signedIn()"><a href="#" ui-sref="trailster.register">Register</a></li>
-      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.hikes" ui-sref-active="active">Hikes</a></li>
-      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.new" ui-sref-active="active">+ Hike</a></li>
-      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.groups" ui-sref-active="active">Groups</a></li>
-      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.new-group" ui-sref-active="active">+ Group</a></li>
-      <li ng-show="signedIn()"><a href="#" ui-sref="trailster.about" ui-sref-active="active">About</a></li>
-      <li ng-show="signedIn()">{{ user.username }}</li>
-      <li ng-show="signedIn()"><a href="" ng-click="logout()">Log Out</a></li>
-    </ul>
-  </div>
-</nav>
+
+
+<div class="navbar-fixed">
+  <nav ng-controller="NavbarController">
+    <div class="nav-wrapper red darken-4">
+      <a href="#!" ui-sref="trailster" class="brand-logo">Trailster</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li ng-hide="signedIn()" ui-sref-active="active"><a href="#"  ui-sref="trailster.login" >Log In</a></li>
+        <li ng-hide="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.register">Register</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.hikes">Hikes</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.new" >+ Hike</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.groups" >Groups</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.new-group" >+ Group</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.about" >About </a></li>
+        <li ng-show="signedIn()">| &nbsp;&nbsp;&nbsp;{{ user.username }} &nbsp;&nbsp;|</li>
+        <li ng-show="signedIn()"><a href="" ng-click="logout()">Log Out &nbsp;&nbsp;|</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li ng-hide="signedIn()" ui-sref-active="active"><a href="#"  ui-sref="trailster.login" >Log In</a></li>
+        <li ng-hide="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.register">Register</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.hikes">Hikes</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.new" >+ Hike</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.groups" >Groups</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.new-group" >+ Group</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href="#" ui-sref="trailster.about" >About</a></li>
+        <li ng-show="signedIn()"><a href="" ng-click="logout()">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>

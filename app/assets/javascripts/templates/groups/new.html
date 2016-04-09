@@ -1,17 +1,35 @@
-<h2>Add A Group</h1>
+<h3 class="center">Create Group</h3>
 
-<form validate ng-submit="ctrl.createGroup(ctrl.user)">
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <form
+          class="form-labels left-side"
+          validate ng-submit="ctrl.createGroup(ctrl.user)">
 
-  <label>Name</label>
-  <input
-    type="text"
-    ng-model="ctrl.group.name">
+          <div ng-include="'groups/_form.html'"></div>
 
-  <label>Description</label>
-  <input
-    type="text"
-    ng-model="ctrl.group.description">
 
-  <input type="submit" value="Create Group">
+          <input
+            class="waves-effect deep-orange btn below "
+            type="submit"
+            value="Add Group">
 
-</form>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m6">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">Name: {{ ctrl.group.name }}</span>
+        <hr>
+        <p>
+          Description: <br><br>
+          {{ ctrl.group.description }}
+        </p>
+    </div>
+  </div>
+</div>

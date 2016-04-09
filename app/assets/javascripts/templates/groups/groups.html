@@ -1,15 +1,22 @@
-<h1>Groups</h1>
+<h3 class="center">Groups</h3>
 
-<ul>
-  <li ng-repeat="group in ctrl.groups">
-    <div>
-      <a href="#" ui-sref="trailster.group({id: group.id})">{{ group.name }}</a>
-      <p>
-        {{ group.description }}
-      </p>
-      <ul>
-        <li> {{ group.users.count }}</li>
-      </ul>
-    </div>
-  </li>
-</ul>
+<div class="row">
+  <ul>
+    <li ng-repeat="group in ctrl.groups">
+      <div class="col s12 m6">
+        <div class="card cyan darken-4">
+          <div class="card-content white-text">
+            <span class="card-title"><a href="#"
+              class="card-link" ui-sref="trailster.group({id: group.id})">{{ group.name }}</a></span>
+            <hr><br>
+            <p class="truncate">
+              Description: <br><br>
+              {{ group.description }}
+            </p><br>
+            <h6>Current # of Hikers : {{ group.users.length }}</h6>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

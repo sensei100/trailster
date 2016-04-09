@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+
+@import "materialize";
+
+.form-labels label {
+  display: block;
+  width: 100%;
+}
+
+.left-side {
+  margin-top: 8px;
+}
+
+.below {
+  margin-top: 20px;
+}
+
+i {
+  color: white;
+}
+
+.card-link {
+  color: white;
+}
+
+.comment-item {
+  margin-bottom: 8px;
+}
+
+.nav-wrapper {
+  padding: 0 12px;
+}
+
+form.auth {
+
+  label {
+    color: white;
+  }
+
+  input {
+    color: white;
+  }
+}
+
+.filter-button {
+  width: 100%;
+}

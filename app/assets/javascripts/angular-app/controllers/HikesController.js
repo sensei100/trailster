@@ -1,11 +1,13 @@
 
 app.controller('HikesController', HikesController);
 
-function HikesController(Hike, $state) {
+function HikesController(Hike, $state, $filter) {
 
   var ctrl = this;
 
   ctrl.hikes = Hike.query();
+
+  ctrl.showHikes = false;
 
   ctrl.likeHike = function(hike) {
     hike.likes++;

@@ -1,28 +1,76 @@
-<h2>All Hikes</h2>
+<h3 class="center">Local Hikes</h3>
+
+<div class="row">
+  <div class="col s12 m4 push-m4">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+
+        <label
+          ng-click="showFilterDifficulty = !showFilterDifficulty"
+          class="waves-effect cyan darken-3 filter-button btn">
+          <i class="material-icons right">search</i>
+          Filter by difficulty 1 - 4</label>
+        <input
+          ng-show="showFilterDifficulty"
+          ng-model="search.difficulty"/>
+
+        <label
+          ng-click="showFilterCity = !showFilterCity"
+          class="waves-effect cyan filter-button darken-3 btn">
+          <i class="material-icons right">search</i>
+          Filter by city</label>
+        <input
+          ng-show="showFilterCity"
+          ng-model="search.city"/>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <ul>
-  <li ng-repeat="hike in ctrl.hikes">
-    <div>
-      <h2><a href="#" ui-sref="trailster.hike({id: hike.id})">{{ hike.name }}</a></h2>
-      <h4>
-        {{ hike.street_address }}<br>
-        {{ hike.city }}, {{ hike.state }}
-      </h4>
-      <p>
-        Difficulty: {{ hike.difficulty }}<br>
-        Distance: {{ hike.distance }} miles<br><br>
-        Likes: {{ hike.likes }} <span ng-click="ctrl.likeHike(hike)">+</span><br>
-        Dislikes: {{ hike.dislikes }} <span ng-click="ctrl.dislikeHike(hike)">+</span>
-      </p>
+  <div class="row">
+    <li ng-repeat="hike in ctrl.hikes | filter:search">
+      <div class="col s12 m4">
+        <div class="card cyan darken-4">
+          <div class="card-content white-text">
+            <span class="card-title"><a href="#" class="card-link" ui-sref="trailster.hike({id: hike.id})">{{ hike.name }}</a></span>
+            <hr>
+            <p>
+              {{ hike.street_address }}<br>
+              {{ hike.city }}, {{ hike.state }}
+            </p><br>
+            <p class="truncate">
+              Description:
+              <hr>
+              {{ hike.description | limitTo:90 }}
+            </p><br><br>
 
-      <h4>Comments:</h4>
-      <ul>
-        <li ng-repeat="comment in hike.comments | orderBy: '-created_at'">
-          <h4>{{ comment.user }}</h4>
-          {{ comment.content }}
-        </li>
-      </ul><br>
-
-    </div>
-  </li>
+            <p>
+              Difficulty: {{ hike.difficulty }}<br>
+              Distance: {{ hike.distance }} miles<br><br>
+            <h5>
+              Likes: {{ hike.likes }}
+              <button class="waves-effect deep-orange btn-floating btn-small">
+                <i
+                  ng-click="ctrl.likeHike(hike)" class="material-icons">add</i>
+              </button>
+              Dislikes: {{ hike.dislikes }}
+              <button class="waves-effect deep-orange btn-floating btn-small">
+                <i
+                  ng-click="ctrl.dislikeHike(hike)" class="material-icons">add</i>
+              </button>
+            </h5><br>
+            <button class="waves-effect deep-orange btn" ng-click="showComments = !showComments">Comments</button>
+            <ul ng-show="showComments">
+              <li ng-repeat="comment in hike.comments | orderBy: '-created_at'">
+                <h4>{{ comment.user }}</h4>
+                {{ comment.content }}
+              </li>
+            </ul><br>
+          </div>
+        </div>
+      </div>
+    </li>
+  </div>
 </ul>

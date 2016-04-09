@@ -1,46 +1,59 @@
-<div>
-  <h2>{{ ctrl.hike.name }}</h2>
-  <h4>
-    {{ ctrl.hike.street_address }}<br>
-    {{ ctrl.hike.city }}, {{ ctrl.hike.state }}
-  </h4>
-  <h4>Hike created by: {{ ctrl.hike.user.username }}</h4>
-  <p>
-    Difficulty: {{ ctrl.hike.difficulty }}<br>
-    Distance: {{ ctrl.hike.distance }} miles<br><br>
-    Likes: {{ ctrl.hike.likes }}<br>
-    Dislikes: {{ ctrl.hike.dislikes }}
-  </p>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">{{ ctrl.hike.name }}</span><br><br>
+        <p>Address : <br>
+          {{ ctrl.hike.street_address }}<br>
+          {{ ctrl.hike.city }}, {{ ctrl.hike.state }}
+        </p><br>
+        <p>Hike created by: {{ ctrl.hike.user.username }}</p>
+        <p>
+          Difficulty: {{ ctrl.hike.difficulty }}<br>
+          Distance: {{ ctrl.hike.distance }} miles<br><br>
+          Likes: {{ ctrl.hike.likes }}<br>
+          Dislikes: {{ ctrl.hike.dislikes }}
+        </p><br>
 
-  <a ng-show="ctrl.isHikeCreator(ctrl.user, ctrl.hike)" href="#" ui-sref="trailster.edit({id: ctrl.hike.id})">Edit Hike</a>
-  <a ng-show="ctrl.isHikeCreator(ctrl.user, ctrl.hike)" href ng-click="ctrl.deleteHike(ctrl.hike)">Delete</a>
+        <a class="waves-effect deep-orange btn" ng-show="ctrl.isHikeCreator(ctrl.user, ctrl.hike)" href="#" ui-sref="trailster.edit({id: ctrl.hike.id})">Edit Hike</a>
+        <a class="waves-effect deep-orange btn" ng-show="ctrl.isHikeCreator(ctrl.user, ctrl.hike)" href ng-click="ctrl.deleteHike(ctrl.hike)">Delete</a><br><br>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    Add Comment
-  </p>
-  <form
-    validate
-    ng-submit="ctrl.addComment(ctrl.comment, ctrl.hike)">
+  <div class="col s12 m6">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">Add Comment:</span>
+        <form
+          validate
+          ng-submit="ctrl.addComment(ctrl.comment, ctrl.hike)">
 
-    <input
-      type="text"
-      ng-model="ctrl.comment.content">
+          <input
+            type="text"
+            ng-model="ctrl.comment.content">
 
-    <input
-      type="submit"
-      value="Add Comment">
+          <input
+            type="submit"
+            class="waves-effect deep-orange btn"
+            value="Submit">
 
-  </form><br>
+        </form><br>
 
+        <h5>Comments:</h5>
 
-  <h4>Comments:</h4>
-
-  <ul>
-    <li>{{ ctrl.comment.content}}</li>
-    <li ng-repeat="comment in ctrl.hike.comments | orderBy: '-created_at'">
-      {{ comment.content }} <button ng-click="ctrl.deleteComment(comment)">X</button>
-    </li>
-  </ul><br>
-
-
+        <ul>
+          <li class="comment-item">{{ ctrl.comment.content}}</li>
+          <li class="comment-item" ng-repeat="comment in ctrl.hike.comments | orderBy: '-created_at'">
+            &nbsp;&nbsp; <button class="btn-floating deep-orange btn-small waves-effect waves-light" ng-click="ctrl.deleteComment(comment)">X</button>
+            {{ comment.content }}
+          </li>
+        </ul><br>
+      </div>
+    </div>
+  </div>
 </div>
+
+<p>
+
+</p>

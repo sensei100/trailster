@@ -49,7 +49,7 @@ module Api
 
       private
         def hike_params
-          params.require(:hike).permit(:name, :description, :street_address, :city, :state, :difficulty, :distance, :likes, :dislikes)
+          params.require(:hike).permit(:name, :description, :street_address, :city, :state, :difficulty, :distance, :likes, :dislikes, :user_id)
         end
 
     end

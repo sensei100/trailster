@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'jquery-rails'
+
+gem 'materialize-sass'
+
 gem 'angular_rails_csrf'
 
 gem 'devise'
