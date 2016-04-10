@@ -6,4 +6,6 @@ To run this app:
 
 1. please make sure you have postgreSQL and Rails installed.
 
-2. run rake db:seed 
+2. $ bundle install
+
+3. $ rake db:create db:migrate db:seed 
