@@ -1,7 +1,7 @@
 
 app.controller('HikesController', HikesController);
 
-function HikesController(Hike, $state, $filter) {
+function HikesController(Hike, $filter) {
 
   var ctrl = this;
 

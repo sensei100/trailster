@@ -27,7 +27,7 @@
         <span class="card-title">Add Comment:</span>
         <form
           validate
-          ng-submit="ctrl.addComment(ctrl.comment, ctrl.hike)">
+          ng-submit="ctrl.addComment(ctrl.comment, ctrl.hike, ctrl.user)">
 
           <input
             type="text"
@@ -45,8 +45,8 @@
         <ul>
           <li class="comment-item">{{ ctrl.comment.content}}</li>
           <li class="comment-item" ng-repeat="comment in ctrl.hike.comments | orderBy: '-created_at'">
-            &nbsp;&nbsp; <button class="btn-floating deep-orange btn-small waves-effect waves-light" ng-click="ctrl.deleteComment(comment)">X</button>
-            {{ comment.content }}
+            &nbsp;&nbsp; <button class="btn-floating deep-orange btn-small waves-effect waves-light" ng-click="ctrl.deleteComment(comment, ctrl.user)">X</button>
+            {{ comment.content }} - {{ comment.username }}
           </li>
         </ul><br>
       </div>

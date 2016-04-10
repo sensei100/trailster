@@ -20,8 +20,10 @@ function ShowHikeController(Hike, Comment, $state, $stateParams, $http, Auth) {
     });
   };
 
-  ctrl.addComment = function(comment, hike) {
+  ctrl.addComment = function(comment, hike, user) {
     comment.hike_id = hike.id;
+    comment.user_id = user.id;
+    comment.username = user.username;
     comment.$save(function(result) {
       console.log(result);
     });
@@ -29,11 +31,18 @@ function ShowHikeController(Hike, Comment, $state, $stateParams, $http, Auth) {
     $state.go($state.current, {}, {reload: true});
   };
 
-  ctrl.deleteComment = function(comment) {
-    return $http.delete('http://localhost:3000/api/v1/hikes/' + comment.hike_id + '/comments/' + comment.id).success(function(data, response) {
-      console.log('successfully delete');
-      $state.go($state.current, {}, {reload: true});
-    });
+  ctrl.deleteComment = function(comment, user) {
+    console.log('user id is: ' + user.id + ', and comment userid is: ' + comment.user_id);
+    console.log(comment.us)
+    if(comment.user_id === user.id) {
+      return $http.delete('http://localhost:3000/api/v1/hikes/' + comment.hike_id + '/comments/' + comment.id).success(function(data, response) {
+        console.log('successfully delete');
+        $state.go($state.current, {}, {reload: true});
+      });
+    } else {
+      alert("You cannot delete another user's comment");
+    }
+
   };
 
   ctrl.isHikeCreator = function(user, hike) {

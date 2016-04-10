@@ -5,8 +5,6 @@ module Api
 
       before_filter :authenticate_user!, only: [:create, :update, :destroy]
 
-      respond_to :json
-
       def index
         respond_with(Hike.all.order("id DESC"))
       end

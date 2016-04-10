@@ -61,13 +61,14 @@
                   ng-click="ctrl.dislikeHike(hike)" class="material-icons">add</i>
               </button>
             </h5><br>
-            <button class="waves-effect deep-orange btn" ng-click="showComments = !showComments">Comments</button>
-            <ul ng-show="showComments">
+            <button class="waves-effect deep-orange btn" ng-click="showComments = !showComments">Comments</button><br>
+            <ul ng-show="showComments"><br>
               <li ng-repeat="comment in hike.comments | orderBy: '-created_at'">
-                <h4>{{ comment.user }}</h4>
-                {{ comment.content }}
+                <p>
+                  {{ comment.content }} - {{ comment.username }}
+                </p><br>
               </li>
-            </ul><br>
+            </ul>
           </div>
         </div>
       </div>
