@@ -1,0 +1,20 @@
+
+
+<div ng-include="'navbar/navbar.html'"></div>
+<div ui-view></ui-view>
+
+<div class="row">
+  <div class="col s12 m10 push-m1">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <h1>Welcome to Trailster.</h1>
+        <p ng-hide="signedIn()">
+          Please <a href="#" ui-sref="trailster.register">sign up</a>, so that you can join the Trailster community.
+        </p>
+        <p>
+          As part of the Trailster community you can search, create and comment on hikes in the San Diego area. We are also creating hiking groups, so that you can connect with fellow hikers in your area.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

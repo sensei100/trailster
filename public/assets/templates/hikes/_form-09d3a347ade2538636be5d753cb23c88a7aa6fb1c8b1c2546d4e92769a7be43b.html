@@ -1,0 +1,69 @@
+<label
+  ng-click="showName = !showName"
+  class="waves-effect cyan darken-3 btn">
+  <i class="material-icons right">mode_edit</i>Name</label>
+<input
+  ng-show="showName"
+  type="text"
+  ng-model="ctrl.hike.name">
+
+<label
+  ng-click="showDescription = !showDescription"
+  class="waves-effect cyan darken-3 btn">
+  <i class="material-icons right">mode_edit</i>Description</label>
+<textarea
+  ng-show="showDescription"
+  class="materialize-textarea"
+  ng-model="ctrl.hike.description"></textarea>
+
+<label
+  ng-click="showStreet = !showStreet"
+  class="waves-effect cyan darken-3 btn">
+  <i class="material-icons right">mode_edit</i>Street Address</label>
+<input
+  ng-show="showStreet"
+  type="text"
+  ng-model="ctrl.hike.street_address">
+
+<label
+  ng-click="showCity = !showCity"
+  class="waves-effect cyan darken-3 btn">
+  <i class="material-icons right">mode_edit</i>City</label>
+<input
+  ng-show="showCity"
+  type="text"
+  ng-model="ctrl.hike.city">
+
+<label
+  ng-click="showState = !showState"
+  class="waves-effect cyan darken-3 btn">
+  <i class="material-icons right">mode_edit</i>State</label>
+<input
+  ng-show="showState"
+  type="text"
+  ng-model="ctrl.hike.state">
+
+<label
+  ng-click="showDifficulty = !showDifficulty"
+  class="waves-effect cyan darken-3 btn">
+  <i class="material-icons right">mode_edit</i>Difficulty</label>
+<p
+  ng-show="showDifficulty"
+  class="range-field">
+  <input
+    type="range"
+    id="test5"
+    min="1"
+    max="4"
+    ng-model="ctrl.hike.difficulty">
+</p>
+
+
+<label
+  ng-click="showDistance = !showDistance"
+  class="waves-effect cyan darken-3 btn">
+  <i class="material-icons right">mode_edit</i>Distance In Miles</label>
+<input
+  ng-show="showDistance"
+  type="text"
+  ng-model="ctrl.hike.distance">

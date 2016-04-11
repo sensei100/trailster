@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">{{ ctrl.hike.name }}</span><br><br>
+        <p>Address : <br>
+          {{ ctrl.hike.street_address }}<br>
+          {{ ctrl.hike.city }}, {{ ctrl.hike.state }}
+        </p><br>
+        <p>Hike created by: {{ ctrl.hike.user.username }}</p>
+        <p>
+          Difficulty: {{ ctrl.hike.difficulty }}<br>
+          Distance: {{ ctrl.hike.distance }} miles<br><br>
+          Likes: {{ ctrl.hike.likes }}<br>
+          Dislikes: {{ ctrl.hike.dislikes }}
+        </p><br>
+
+        <a class="waves-effect deep-orange btn" ng-show="ctrl.isHikeCreator(ctrl.user, ctrl.hike)" href="#" ui-sref="trailster.edit({id: ctrl.hike.id})">Edit Hike</a>
+        <a class="waves-effect deep-orange btn" ng-show="ctrl.isHikeCreator(ctrl.user, ctrl.hike)" href ng-click="ctrl.deleteHike(ctrl.hike)">Delete</a><br><br>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m6">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">Add Comment:</span>
+        <form
+          validate
+          ng-submit="ctrl.addComment(ctrl.comment, ctrl.hike, ctrl.user)">
+
+          <input
+            type="text"
+            ng-model="ctrl.comment.content">
+
+          <input
+            type="submit"
+            class="waves-effect deep-orange btn"
+            value="Submit">
+
+        </form><br>
+
+        <h5>Comments:</h5>
+
+        <ul>
+          <li class="comment-item">{{ ctrl.comment.content}}</li>
+          <li class="comment-item" ng-repeat="comment in ctrl.hike.comments | orderBy: '-created_at'">
+            &nbsp;&nbsp; <button class="btn-floating deep-orange btn-small waves-effect waves-light" ng-click="ctrl.deleteComment(comment, ctrl.user)">X</button>
+            {{ comment.content }} - {{ comment.username }}
+          </li>
+        </ul><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+
+</p>

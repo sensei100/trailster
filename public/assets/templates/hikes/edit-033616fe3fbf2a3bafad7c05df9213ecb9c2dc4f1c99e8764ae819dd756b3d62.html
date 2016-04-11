@@ -1,0 +1,26 @@
+<h3 class="center">Edit Hike</h3>
+<hr>
+
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card cyan darken-4">
+      <div class="card-content white-text">
+        <form
+          class="form-labels left-side"
+          validate ng-submit="ctrl.editHike(ctrl.user)">
+
+            <div ng-include="'hikes/_form.html'"></div>
+
+          <input
+            class="waves-effect deep-orange btn below "
+            type="submit"
+            value="Save">
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div ng-include="'hikes/_hikeCard.html'"></div>
+
+</div>
