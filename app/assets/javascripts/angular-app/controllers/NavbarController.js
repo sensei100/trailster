@@ -11,15 +11,15 @@ function NavbarController($scope, Auth) {
       $scope.user = user;
     });
 
-  $scope.$on('devise:new-registration', function(e, user) {
+  $scope.$on('devise:new-registration', function(user) {
     $scope.user = user;
   });
 
-  $scope.$on('devise:login', function(e, user) {
+  $scope.$on('devise:login', function(user) {
     $scope.user = user;
   });
 
-  $scope.$on('devise:logout', function(e, user) {
+  $scope.$on('devise:logout', function(user) {
     $scope.user = {};
   });
 

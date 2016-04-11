@@ -146,7 +146,7 @@ comments = [
     content: 'Mountains that take your breath away.',
     hike_id: 2,
     user_id: 1,
-    username: 'Crazy_dude'
+    username: 'Da_user'
   }
 ]
 
