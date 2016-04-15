@@ -7,7 +7,6 @@ function ShowHikeController(Hike, Comment, $state, $stateParams, $http, Auth) {
   Auth.currentUser()
     .then(function(user) {
       ctrl.user = user;
-      console.log(ctrl.user);
     });
 
   ctrl.comment = new Comment();
