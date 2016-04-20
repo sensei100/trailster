@@ -16,6 +16,26 @@
   class="materialize-textarea"
   ng-model="ctrl.hike.description"></textarea>
 
+
+<label
+  ng-click="showGear = !showGear"
+  class="waves-effect cyan darken-3 btn">
+  <i class="material-icons right">mode_edit</i>Gear Needed</label>
+  <input
+    type="text"
+    ng-show="showGear"
+    ng-model="ctrl.hike.gear">
+  <input
+    type="text"
+    ng-show="showGear"
+    ng-model="ctrl.hike.gear">
+  <input
+    type="text"
+    ng-show="showGear"
+    ng-model="ctrl.hike.gear">
+  <button type="button" name="button"></button> 
+
+
 <label
   ng-click="showStreet = !showStreet"
   class="waves-effect cyan darken-3 btn">
