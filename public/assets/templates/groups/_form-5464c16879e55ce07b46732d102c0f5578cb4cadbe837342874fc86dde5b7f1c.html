@@ -1,0 +1,19 @@
+<label
+  ng-click="showName = !showName"
+  class="waves-effect cyan darken-3 btn bottoms">
+  <i class="material-icons right">mode_edit</i>Name</label>
+<input
+  ng-show="showName"
+  ng-mouseleave="showName = !showName"
+  type="text"
+  ng-model="ctrl.group.name">
+
+<label
+  ng-click="showDescription = !showDescription"
+  class="waves-effect cyan darken-3 btn bottoms">
+  <i class="material-icons right">mode_edit</i>Description</label>
+<textarea
+  ng-show="showDescription"
+  ng-mouseleave="showDescription = !showDescription"
+  class="materialize-textarea"
+  ng-model="ctrl.group.description"></textarea>
