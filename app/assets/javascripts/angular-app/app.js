@@ -35,17 +35,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('trailster.hike', {
       url: 'hike/:id',
       templateUrl: 'hikes/show.html',
-      controller: 'ShowHikeController as ctrl'
+      controller: 'HikesController as ctrl'
     })
     .state('trailster.new', {
       url: 'new',
       templateUrl: 'hikes/new.html',
-      controller: 'NewHikeController as ctrl'
+      controller: 'HikesController as ctrl'
     })
     .state('trailster.edit', {
       url: 'edit/:id',
       templateUrl: 'hikes/edit.html',
-      controller: 'EditHikeController as ctrl'
+      controller: 'HikesController as ctrl'
     })
     .state('trailster.groups', {
       url: 'groups',
