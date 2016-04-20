@@ -49,9 +49,9 @@
             <p>
               Difficulty: {{ hike.difficulty }}<br>
               Distance: {{ hike.distance }} miles<br><br>
-            <h5>
+            <!-- <h5>
               Likes: {{ hike.likes }}
-              <button class="waves-effect deep-orange btn-floating btn-small">
+              <button class="liker waves-effect deep-orange btn-floating btn-small">
                 <i
                   ng-click="ctrl.likeHike(hike)" class="material-icons">add</i>
               </button>
@@ -60,7 +60,7 @@
                 <i
                   ng-click="ctrl.dislikeHike(hike)" class="material-icons">add</i>
               </button>
-            </h5><br>
+            </h5><br> -->
             <button class="waves-effect deep-orange btn" ng-click="showComments = !showComments">Comments</button><br>
             <ul ng-show="showComments"><br>
               <li ng-repeat="comment in hike.comments | orderBy: '-created_at'">
