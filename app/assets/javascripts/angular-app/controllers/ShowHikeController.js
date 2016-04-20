@@ -35,7 +35,7 @@ function ShowHikeController(Hike, Comment, $state, $stateParams, $http, Auth) {
     console.log('user id is: ' + user.id + ', and comment userid is: ' + comment.user_id);
     console.log(comment.us)
     if(comment.user_id === user.id) {
-      return $http.delete('http://localhost:3000/api/v1/hikes/' + comment.hike_id + '/comments/' + comment.id).success(function(data, response) {
+      return $http.delete('https://trailster.herokuapp.com/api/v1/hikes/' + comment.hike_id + '/comments/' + comment.id).success(function(data, response) {
         console.log('successfully delete');
         $state.go($state.current, {}, {reload: true});
       });

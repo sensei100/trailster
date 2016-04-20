@@ -2,7 +2,7 @@ app.factory('Group', Group);
 
 function Group($resource) {
 
-  var Group = $resource('http://localhost:3000/api/v1/groups/:id', {id: '@id'}, {
+  var Group = $resource('https://trailster.herokuapp.com/api/v1/groups/:id', {id: '@id'}, {
     update: { method: 'PUT' },
     delete: { method: 'DELETE' },
   });
