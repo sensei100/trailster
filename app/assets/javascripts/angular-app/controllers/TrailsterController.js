@@ -2,7 +2,7 @@ app.controller('TrailsterController', TrailsterController);
 
 function TrailsterController($scope, Auth, $location) {
 
-  // var ctrl = this;
+  var ctrl = this;
 
   $scope.signedIn = Auth.isAuthenticated;
 
