@@ -7,7 +7,7 @@
   <div class="col s12">
     <div class="card cyan darken-4 main-div">
       <div class="card-content white-text">
-        <img class="home-image" src="assets/title.png" ></img>
+        <%= image_tag "title.png", class: "home-image"%>
         <p class="inner-main">
           As part of the Trailster community you can search, create and comment on hikes in the San Diego area. We are also creating hiking groups, so that you can connect with fellow hikers in your area.<br>
           <button ng-hide="signedIn()" class="waves-effect waves-light btn" ui-sref="trailster.register">Register Now</button>
