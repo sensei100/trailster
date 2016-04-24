@@ -98,8 +98,6 @@ Devise.setup do |config|
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 10
 
-  config.secret_key = '7a1ab2a2f789294c3821b98396e8f38025536d6bf9819d24d09e5ddac0397d39b6daa9711cbbc9134be4a47627e023d87af275760bb11c924753548ac79ddc8b'
-
   # Setup a pepper to generate the encrypted password.
   # config.pepper = 'eeb829d63ec0c7067be094437836d0a859303a5c75f421557cafd09582d8febec045c6f4e7fd5fae769e9849d83c1e90e00ad9ddc678fdb935a8aa1b7294ccfb'
 
