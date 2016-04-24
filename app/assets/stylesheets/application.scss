@@ -56,10 +56,39 @@ form.auth {
   }
 }
 
+.auto-fill {
+  height: auto;
+}
+
+.fun {
+  width: 50%;
+  float: left;
+  padding: 10px;
+}
+
 .filter-button {
   width: 100%;
 }
-
 .bottoms {
   margin-bottom: 16px;
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  padding: -15px;
+  border: 2px solid white;
+}
+
+.main-div div.card-content {
+  padding: 12px;
+}
+
+.inner-main {
+  padding: 12px;
+  text-align: center;
+}
+
+.numeric {
+  margin-top: 20px
 }
